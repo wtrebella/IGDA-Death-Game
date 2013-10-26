@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class GamePage : AbstractPage {
-	public GamePage() {
+public class DGGamePage : AbstractPage {
+	List<DGPlayer> players = new List<DGPlayer>();
+
+	public DGGamePage() {
 		FSprite deathBG = new FSprite("death_bg");
 		deathBG.SetPosition(Futile.screen.halfWidth, Futile.screen.halfHeight);
 		float ratio = deathBG.height / deathBG.width;
@@ -18,7 +21,11 @@ public class GamePage : AbstractPage {
 		heart.rotation = 90;
 		AddChild(heart);
 
-
+		DGPlayer player = new DGPlayer("player");
+		player.x = Futile.screen.halfWidth;
+		player.y = 100;
+		AddChild(player);
+		players.Add(player);
 	}
 
 	// Use this for initialization

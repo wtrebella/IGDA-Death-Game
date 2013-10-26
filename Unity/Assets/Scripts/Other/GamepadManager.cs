@@ -45,7 +45,7 @@ public class GamepadManager
 
 		bool gamepadsChanged = false;
 
-        if (countDelta > 0)
+		if (countDelta > 0)
         {
 			gamepadsChanged = true;
             //Debug.Log("Just added " + countDelta + " gamepad" + (countDelta == 1 ? "" : "s"));

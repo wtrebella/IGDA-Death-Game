@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Gamepad
 {
-	static public bool SHOULD_LOG_ALL_BUTTON_PRESSES = true;
+	static public bool SHOULD_LOG_ALL_BUTTON_PRESSES = false;
 
 	public ControlType controlType {get; private set;}
 
@@ -24,9 +24,13 @@ public class Gamepad
 	public string buttonReady;
 	public string buttonStart;
 	public string buttonReset;
+
+	public string gamePadName;
     
-    public Gamepad(string joystickName)
+    public Gamepad(string gamePadName)
     {
+		this.gamePadName = gamePadName;
+
 		controlType = ControlType.NONE;
 
 		bool isWindows = 
@@ -34,14 +38,14 @@ public class Gamepad
 				Application.platform == RuntimePlatform.WindowsPlayer ||
 				Application.platform == RuntimePlatform.WindowsWebPlayer;
 
-		if(joystickName.Contains("360") || joystickName.ToLower().Contains("xbox")) //Xbox 360 controller or Microsoft 360 Wireless Controller
+		if(gamePadName.Contains("360") || gamePadName.ToLower().Contains("xbox")) //Xbox 360 controller or Microsoft 360 Wireless Controller
 		{
 			controlType = ControlType.Xbox;
 
 			axisXName = "Axis 1";
 			axisYName = "Axis 2";
 			shouldInvertX = false;
-			shouldInvertY = true;
+			shouldInvertY = false;
 
 			if(isWindows)
 			{
@@ -56,14 +60,14 @@ public class Gamepad
 				buttonReset = XboxButtonType.Back.numStringOSX;
 			}
 		}
-		else if(joystickName.ToLower().Contains("sony")) //PS3 Controller
+		else if(gamePadName.ToLower().Contains("sony")) //PS3 Controller
 		{
 			controlType = ControlType.PS3;
 
 			axisXName = "Axis 1";
 			axisYName = "Axis 2";
 			shouldInvertX = false;
-			shouldInvertY = true;
+			shouldInvertY = false;
 
 			buttonStart = PS3ButtonType.Start.numStringOSX;
 			buttonReady = PS3ButtonType.X.numStringOSX;

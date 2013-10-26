@@ -3,24 +3,24 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public enum PageType
+public enum DGPageType
 {
 	None = -1,
-	GamePage = 0,
+	DGGamePage = 0,
 	Max
 };
 
-public class Main : MonoBehaviour 
+public class DGMain : MonoBehaviour 
 {
-	//static Main instance = null;
+	public static DGMain instance = null;
 
-	private PageType _currentPageType = PageType.None;
+	private DGPageType _currentPageType = DGPageType.None;
 	private AbstractPage _currentPage = null;
 
 	// Use this for initialization
 	void Start () 
 	{
-		//instance = this;
+		instance = this;
 
 		Go.defaultEaseType = EaseType.Linear;
 		Go.duplicatePropertyRule = DuplicatePropertyRuleType.RemoveRunningProperty;
@@ -49,7 +49,10 @@ public class Main : MonoBehaviour
 		Futile.atlasManager.LoadAtlas("Atlases/GameAtlas");
 
 		FTextParams textParams;
-		
+
+		GamepadManager.Init();
+		FPWorld.Create(64.0f);
+
 		textParams = new FTextParams();
 		textParams.lineHeightOffset = -8.0f;
 		Futile.atlasManager.LoadFont("Franchise","FranchiseFont"+Futile.resourceSuffix, "Atlases/FranchiseFont"+Futile.resourceSuffix, -2.0f,-5.0f,textParams);
@@ -59,10 +62,10 @@ public class Main : MonoBehaviour
 		textParams.lineHeightOffset = -8.0f;
 		Futile.atlasManager.LoadFont("CubanoInnerShadow","Cubano_InnerShadow"+Futile.resourceSuffix, "Atlases/CubanoInnerShadow"+Futile.resourceSuffix, 0.0f,2.0f,textParams);
 
-		GoToPage(PageType.GamePage);
+		GoToPage(DGPageType.DGGamePage);
 	}
 	
-	public void GoToPage (PageType pageType)
+	public void GoToPage (DGPageType pageType)
 	{
 		if(_currentPageType == pageType) return; //we're already on the same page, so don't bother doing anything
 		
@@ -70,8 +73,8 @@ public class Main : MonoBehaviour
 		
 		switch (pageType)
 		{
-		case PageType.GamePage:
-			pageToCreate = new GamePage();
+		case DGPageType.DGGamePage:
+			pageToCreate = new DGGamePage();
 			break;
 		}
 		
@@ -90,5 +93,9 @@ public class Main : MonoBehaviour
 			_currentPage.Start();
 		}
 		
+	}
+
+	void Update() {
+		GamepadManager.instance.Update();
 	}
 }

@@ -82,31 +82,6 @@ public enum UIItemType {
 	NONE
 }
 
-public enum SceneType {
-	None,
-	TitleScreen,
-	TitleScreenNew,
-	Help,
-	PivvotGameVoyage,
-	PivvotGameExpertVoyage,
-	PivvotGameEndless,
-	PivvotGameEndlessExpert,
-	PivvotGameRandomEndless,
-	PivvotGameRandomExpertEndless,
-	PivvotGameBerserk,
-	DataOptions,
-	EraseData,
-	ResetVoyage,
-	ResetExpertVoyage,
-	PulsatorTest,
-	HighScoresPage,
-	NewHighScoreEntryPage,
-	ShapeCreator,
-	PathMenu,
-	GameOver,
-	Settings
-}
-
 public enum ComponentType {
 	Sprite,
 	SliceSprite,
@@ -117,32 +92,5 @@ public enum ComponentType {
 	Velocity,
 	QuadSprite,
 	RadialWipeSprite,
-	NONE
-}
-
-public enum SongType {
-	ExpertTheme,
-	ExpertThemeReverse,
-	MainTheme,
-	MainThemeReverse,
-	BerserkTheme,
-	TitleTheme,
-	NONE
-}
-
-public enum GameType {
-	Voyage,
-	Endless,
-	RandomEndless,
-	MAX,
-	NONE,
-	// stuff after this point doesn't relate to the normal campaign patterns
-	Berserk
-}
-
-public enum VoyageType {
-	Main,
-	Expert,
-	MAX,
 	NONE
 }

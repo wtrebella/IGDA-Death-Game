@@ -7,13 +7,14 @@ public enum DGPageType
 {
 	None = -1,
 	DGGamePage = 0,
+	DGPlayerSelectPage,
 	Max
 };
 
 public class DGMain : MonoBehaviour 
 {
 	public static DGMain instance = null;
-
+	
 	private DGPageType _currentPageType = DGPageType.None;
 	private AbstractPage _currentPage = null;
 
@@ -51,6 +52,7 @@ public class DGMain : MonoBehaviour
 		FTextParams textParams;
 
 		GamepadManager.Init();
+		GamepadManager.instance.SignalGamepadsChanged += HandleGamepadsChanged;
 		FPWorld.Create(64.0f);
 
 		textParams = new FTextParams();
@@ -62,9 +64,9 @@ public class DGMain : MonoBehaviour
 		textParams.lineHeightOffset = -8.0f;
 		Futile.atlasManager.LoadFont("CubanoInnerShadow","Cubano_InnerShadow"+Futile.resourceSuffix, "Atlases/CubanoInnerShadow"+Futile.resourceSuffix, 0.0f,2.0f,textParams);
 
-		GoToPage(DGPageType.DGGamePage);
+		GoToPage(DGPageType.DGPlayerSelectPage);
 	}
-	
+
 	public void GoToPage (DGPageType pageType)
 	{
 		if(_currentPageType == pageType) return; //we're already on the same page, so don't bother doing anything
@@ -75,6 +77,9 @@ public class DGMain : MonoBehaviour
 		{
 		case DGPageType.DGGamePage:
 			pageToCreate = new DGGamePage();
+			break;
+		case DGPageType.DGPlayerSelectPage:
+			pageToCreate = new DGPlayerSelectPage();
 			break;
 		}
 		
@@ -90,12 +95,32 @@ public class DGMain : MonoBehaviour
 			
 			_currentPage = pageToCreate;
 			Futile.stage.AddChild(_currentPage);
-			_currentPage.Start();
+			if (pageType == DGPageType.DGGamePage) _currentPage.ZoomThenStart();
+			else _currentPage.Start();
 		}
 		
 	}
 
+	public static bool IsWindows() {
+		return Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsWebPlayer;
+	}
+
 	void Update() {
 		GamepadManager.instance.Update();
+	}
+
+	public void HandleGamepadsChanged() {
+		foreach (DGPlayer p in DGPlayer.players) {
+			bool foundGamepad = false;
+
+			foreach (Gamepad g in GamepadManager.instance.gamepads) {
+				if (g == p.gamepad) {
+					foundGamepad = true;
+					break;
+				}
+			}
+
+			if (!foundGamepad) p.gamepad = null;
+		}
 	}
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class DGGamePage : AbstractPage {
-	List<DGPlayer> players = new List<DGPlayer>();
+	List<DGCell> cells = new List<DGCell>();
 
 	public DGGamePage() {
 		FSprite deathBG = new FSprite("death_bg");
@@ -20,16 +20,18 @@ public class DGGamePage : AbstractPage {
 		heart.rotation = 90;
 		AddChild(heart);
 
-		DGPlayer player = new DGPlayer("player");
-		player.x = Futile.screen.halfWidth;
-		player.y = 100;
-		AddChild(player);
-		players.Add(player);
+		for (int i = 0; i < DGPlayer.players.Count; i++) {
+			DGCell cell = new DGCell("player " + (i + 1), DGPlayer.players[i]);
+			cell.x = Futile.screen.halfWidth;
+			cell.y = 100;
+			AddChild(cell);
+			cells.Add(cell);
+		}
 	}
 
 	// Use this for initialization
 	override public void Start () {
-		foreach (DGPlayer p in players) p.physicsComponent.StartPhysics();
+		foreach (DGCell p in cells) p.physicsComponent.StartPhysics();
 	}
 	
 	// Update is called once per frame

@@ -2,7 +2,7 @@
 
 "WhiteBox.png":
 {
-	"frame": {"x":876,"y":124,"w":64,"h":64},
+	"frame": {"x":2,"y":1934,"w":64,"h":64},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
@@ -10,26 +10,34 @@
 },
 "death_bg.png":
 {
-	"frame": {"x":2,"y":2,"w":680,"h":1024},
+	"frame": {"x":2,"y":2,"w":1024,"h":1024},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":226,"y":0,"w":680,"h":1024},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1024,"h":1024},
 	"sourceSize": {"w":1024,"h":1024}
 },
 "heart.png":
 {
-	"frame": {"x":684,"y":2,"w":190,"h":122},
+	"frame": {"x":130,"y":1804,"w":190,"h":122},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":190,"h":122},
 	"sourceSize": {"w":190,"h":122}
 },
-"player_cell.png":
+"playable.png":
 {
-	"frame": {"x":876,"y":2,"w":120,"h":120},
+	"frame": {"x":2,"y":1028,"w":614,"h":774},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":614,"h":774},
+	"sourceSize": {"w":614,"h":774}
+},
+"player_cell.psd":
+{
+	"frame": {"x":2,"y":1804,"w":126,"h":128},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":4,"y":4,"w":120,"h":120},
+	"spriteSourceSize": {"x":0,"y":0,"w":126,"h":128},
 	"sourceSize": {"w":128,"h":128}
 }},
 "meta": {
@@ -37,8 +45,8 @@
 	"version": "1.0",
 	"image": "GameAtlas_Scale2.png",
 	"format": "RGBA8888",
-	"size": {"w":1024,"h":2048},
+	"size": {"w":2048,"h":2048},
 	"scale": "0.5",
-	"smartupdate": "$TexturePacker:SmartUpdate:0f5fc239b507bdd49513afc2b99040e6$"
+	"smartupdate": "$TexturePacker:SmartUpdate:e895e92adf55c447feeeb390aac099c8$"
 }
 }

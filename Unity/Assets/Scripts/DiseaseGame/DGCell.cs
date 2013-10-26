@@ -10,6 +10,7 @@ public enum CellAnimationType {
 public class DGCell : WTPhysicsNode {
 	public FSprite sprite;
 	public CellAnimationType animationType = CellAnimationType.Swimming;
+	public DGPlayer player;
 
 	float baseScale = 0.5f;
 	float minScaleRatioX = 0.9f;
@@ -17,7 +18,6 @@ public class DGCell : WTPhysicsNode {
 	List<FAtlasElement> animationMovingElements = new List<FAtlasElement>();
 	List<FAtlasElement> animationIdleElements = new List<FAtlasElement>();
 
-	DGPlayer player;
 	float animationNextTime = 0;
 	float animationStep = 0.075f;
 	int animationMovingIndex = 0;
@@ -72,9 +72,7 @@ public class DGCell : WTPhysicsNode {
 	}
 
 	public bool IsIdle() {
-		if (player == null) return false;
-
-		return player.gamepad.direction.magnitude < 0.1f;
+		return physicsComponent.rigidbody.velocity.magnitude < 0.1f;
 	}
 
 	override public void HandleUpdate() {

@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class DGGamePage : AbstractPage {
 	List<DGCell> cells = new List<DGCell>();
+	List<FLabel> labels = new List<FLabel>();
 	FContainer sceneContainer = new FContainer();
 	FContainer playableContainer = new FContainer();
+	DGSpecialOrgan heart;
 
 	public DGGamePage() {
 		FSprite deathBG = new FSprite("death_bg");
@@ -17,24 +20,86 @@ public class DGGamePage : AbstractPage {
 		deathBG.x -= 15;
 		sceneContainer.AddChild(deathBG);
 
+		DGPlayer.players.Add(new DGPlayer());
+		DGPlayer.players.Add(new DGPlayer());
+		DGPlayer.players.Add(new DGPlayer());
+
 		CreateOrgans();
 		CreateBorderColliders();
 
-		for (int i = 0; i < 4; i++) {// DGPlayer.players.Count; i++) {
+		int playerCount = DGPlayer.players.Count;
+
+		sceneContainer.AddChild(playableContainer);
+
+		float labelMargin = 30;
+
+		for (int i = 0; i < playerCount; i++) {
 			DGCell cell;
 
-			if (i == 0) cell = new DGCell("player " + (i + 1), DGPlayer.players[i]);
-			else cell = new DGCell("player " + (i + 1), null);
+			cell = new DGCell("player " + (i + 1), DGPlayer.players[i]);
 
 			cell.sprite.color = DGConfig.colors[i];
 			playableContainer.AddChild(cell);
 			cells.Add(cell);
+
+			FLabel l = new FLabel("Franchise", "0.00");
+			sceneContainer.AddChild(l);
+			l.color = DGConfig.colors[i];
+			l.x = labelMargin + ((Futile.screen.width - labelMargin * 2) / (playerCount + 1)) * (i + 1) - Futile.screen.halfWidth;
+			l.y = -145;
+			l.scale = 0.5f;
+			labels.Add(l);
 		}
 
-		sceneContainer.AddChild(playableContainer);
+		float yVal = -100;
 
-		sceneContainer.scale = 1.3f;
+		if (cells.Count == 1) {
+			cells[0].x = 0;
+			cells[0].y = yVal;
+		}
+		else if (cells.Count == 2) {
+			cells[0].x = -50;
+			cells[1].x = 50;
+
+			foreach (DGCell cell in cells) {
+				cell.y = yVal;
+			}
+		}
+		else if (cells.Count == 3) {
+			cells[0].x = -50;
+			cells[2].x = 50;
+
+			foreach (DGCell cell in cells) {
+				cell.y = yVal;
+			}
+
+			cells[0].y += 20;
+			cells[2].y += 20;
+		}
+		else if (cells.Count == 4) {
+			cells[0].x = -60;
+			cells[1].x = -21;
+			cells[2].x = 21;
+			cells[3].x = 60;
+
+			foreach (DGCell cell in cells) {
+				cell.y = yVal;
+			}
+
+			cells[0].y += 15;
+			cells[3].y += 15;
+		}
+
+		sceneContainer.scale = 1.1f;
 		AddChild(sceneContainer);
+
+		ListenForUpdate(HandleUpdate);
+	}
+
+	public void HandleUpdate() {
+		for (int i = 0; i < DGPlayer.players.Count; i++) {
+			labels[i].text = heart.infectionAmounts[i].ToString("0.00");
+		}
 	}
 
 	public void CreateBorderColliders() {
@@ -115,7 +180,8 @@ public class DGGamePage : AbstractPage {
 		lungL.y = 75;
 		playableContainer.AddChild(lungL);
 
-		FSprite heart = new FSprite("heart");
+		heart = new DGSpecialOrgan("heart", OrganType.Heart, DGPlayer.players.Count);
+		heart.SignalOrganIsFullyInfected += HandleOrganIsFullyInfected;
 		heart.x = 5;
 		heart.y = 65;
 		playableContainer.AddChild(heart);
@@ -131,5 +197,18 @@ public class DGGamePage : AbstractPage {
 	// Update is called once per frame
 	override public void Destroy () {
 	
+	}
+
+	public void HandleOrganIsFullyInfected(DGSpecialOrgan organ) {
+		int winningIndex = 0;
+
+		for (int i = 1; i < organ.infectionAmounts.Length; i++) {
+			if (organ.infectionAmounts[i] > organ.infectionAmounts[winningIndex]) winningIndex = i;
+		}
+
+		DGCell cell = cells[winningIndex];
+		playableContainer.AddChild(cell);
+		Go.killAllTweensWithTarget(cell);
+		Go.to(cell, 0.5f, new TweenConfig().floatProp("scale", 4f));
 	}
 }

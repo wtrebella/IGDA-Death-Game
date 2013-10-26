@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public enum PageType
 {
 	None = -1,
-	MainPage = 0,
+	GamePage = 0,
 	Max
 };
 
@@ -33,7 +33,7 @@ public class Main : MonoBehaviour
 		
 		FutileParams fparams = new FutileParams(landscape, landscape, portrait, shouldSupportPortraitUpsideDown);
 		
-		fparams.backgroundColor = RXColor.GetColorFromHex(0xff00ff);
+		fparams.backgroundColor = Color.black;
 		
 		fparams.AddResolutionLevel(480.0f,	1.0f,	1.0f,	"_Scale1"); //iPhone
 		fparams.AddResolutionLevel(960.0f,	2.0f,	2.0f,	"_Scale2"); //iPhone retina
@@ -59,7 +59,7 @@ public class Main : MonoBehaviour
 		textParams.lineHeightOffset = -8.0f;
 		Futile.atlasManager.LoadFont("CubanoInnerShadow","Cubano_InnerShadow"+Futile.resourceSuffix, "Atlases/CubanoInnerShadow"+Futile.resourceSuffix, 0.0f,2.0f,textParams);
 
-		GoToPage(PageType.MainPage);
+		GoToPage(PageType.GamePage);
 	}
 	
 	public void GoToPage (PageType pageType)
@@ -70,8 +70,8 @@ public class Main : MonoBehaviour
 		
 		switch (pageType)
 		{
-		case PageType.MainPage:
-			pageToCreate = new MainPage();
+		case PageType.GamePage:
+			pageToCreate = new GamePage();
 			break;
 		}
 		

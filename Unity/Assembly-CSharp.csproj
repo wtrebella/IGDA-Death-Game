@@ -91,10 +91,10 @@
      <Compile Include="Assets\Futile\ThirdParty\MiniJson.cs" />
      <Compile Include="Assets\Scripts\AbstractPage.cs" />
      <Compile Include="Assets\Scripts\Enums.cs" />
+     <Compile Include="Assets\Scripts\GamePage.cs" />
      <Compile Include="Assets\Scripts\Gamepad.cs" />
      <Compile Include="Assets\Scripts\GamepadManager.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
-     <Compile Include="Assets\Scripts\MainPage.cs" />
      <Compile Include="Assets\Scripts\WTPivvotInput.cs" />
      <None Include="Assets\Resources\Atlases\FranchiseFont_Scale1.txt" />
      <None Include="Assets\Resources\Atlases\UIFonts_Scale4.txt" />

@@ -1,0 +1,20 @@
+{"frames": {
+
+"WhiteBox.png":
+{
+	"frame": {"x":2,"y":2,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "GameAtlas_Scale1.png",
+	"format": "RGBA8888",
+	"size": {"w":64,"h":64},
+	"scale": "0.25",
+	"smartupdate": "$TexturePacker:SmartUpdate:2fdbb2d42caf4242f8893b3e3bfa0e1a:1/1$"
+}
+}

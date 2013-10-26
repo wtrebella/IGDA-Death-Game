@@ -95,7 +95,7 @@ public class Gamepad
 		axisJoyName = "Joystick " + indexString;
 		buttonJoyName = "joystick " + indexString;
 
-		direction = Deadzonize(0.1f, Input.GetAxisRaw(axisJoyName + " " + axisXName), Input.GetAxisRaw(axisJoyName + " " + axisYName));
+		direction = Deadzonize(0.2f, Input.GetAxisRaw(axisJoyName + " " + axisXName), Input.GetAxisRaw(axisJoyName + " " + axisYName));
 
 		//rightStick = Deadzonize(0.1f, Input.GetAxisRaw(axisJoyName + " Axis 3"), Input.GetAxisRaw(axisJoyName + " Axis 4"));
         

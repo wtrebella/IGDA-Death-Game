@@ -93,10 +93,10 @@
      <Compile Include="Assets\Scripts\DiseaseGame\DGMain.cs" />
      <Compile Include="Assets\Scripts\DiseaseGame\DGPlayer.cs" />
      <Compile Include="Assets\Scripts\Other\AbstractPage.cs" />
+     <Compile Include="Assets\Scripts\Other\DGConfig.cs" />
      <Compile Include="Assets\Scripts\Other\Enums.cs" />
      <Compile Include="Assets\Scripts\Other\Gamepad.cs" />
      <Compile Include="Assets\Scripts\Other\GamepadManager.cs" />
-     <Compile Include="Assets\Scripts\Other\WTConfig.cs" />
      <Compile Include="Assets\Scripts\Other\WTPivvotInput.cs" />
      <Compile Include="Assets\Scripts\Physics\WTMovingObject.cs" />
      <Compile Include="Assets\Scripts\Physics\WTPhysicsComponent.cs" />

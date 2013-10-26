@@ -2,7 +2,7 @@
 
 "WhiteBox.png":
 {
-	"frame": {"x":2,"y":1330,"w":128,"h":128},
+	"frame": {"x":1744,"y":240,"w":128,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
@@ -10,19 +10,27 @@
 },
 "death_bg.png":
 {
-	"frame": {"x":2,"y":2,"w":1920,"h":1080},
+	"frame": {"x":2,"y":2,"w":1358,"h":2044},
 	"rotated": false,
 	"trimmed": true,
-	"spriteSourceSize": {"x":0,"y":0,"w":1920,"h":1080},
-	"sourceSize": {"w":1919,"h":1080}
+	"spriteSourceSize": {"x":454,"y":2,"w":1358,"h":2044},
+	"sourceSize": {"w":2048,"h":2048}
 },
 "heart.png":
 {
-	"frame": {"x":2,"y":1084,"w":380,"h":244},
+	"frame": {"x":1362,"y":2,"w":380,"h":244},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":380,"h":244},
 	"sourceSize": {"w":379,"h":244}
+},
+"player_cell.png":
+{
+	"frame": {"x":1744,"y":2,"w":236,"h":236},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":10,"w":236,"h":236},
+	"sourceSize": {"w":256,"h":256}
 }},
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker ",
@@ -31,6 +39,6 @@
 	"format": "RGBA8888",
 	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:3b74aa3d9bd380d58569b2384984a9ce$"
+	"smartupdate": "$TexturePacker:SmartUpdate:ad3508dd40957af333aa7440512b22d2$"
 }
 }

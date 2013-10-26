@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class WTMovingObject : WTPhysicsNode {
 	public Vector2 velocity = Vector2.zero;
 	public Vector2 drag = Vector2.zero;
-	public float friction = WTConfig.frictionConstant;
+	public float friction = DGConfig.frictionConstant;
 	public FSprite sprite;
 	public bool isConstantlyMoving = false;
 	public bool shouldBounce = true;
@@ -23,8 +23,6 @@ public class WTMovingObject : WTPhysicsNode {
 		physicsComponent.SetupPhysicMaterial(0.0f, 0.0f, 0.0f, PhysicMaterialCombine.Minimum);
 
 		physicsComponent.gameObject.layer = LayerMask.NameToLayer("Object");
-
-		drag = WTConfig.objectDrag;
 	}
 
 	virtual public bool isOnGround {
@@ -56,8 +54,8 @@ public class WTMovingObject : WTPhysicsNode {
 		if (velocity.x < 0) {
 			if (WTPhysicsRay.Raycast(lLowRay, out lLowHit, xRayDistance, layerMask)) {
 				if (lLowHit.GetPhysicsNode().CompareTag("Solid")) {
-					if (shouldBounce && Mathf.Abs(velocity.x * Time.deltaTime) > WTConfig.minBounceDist) {
-						velocity.x *= -WTConfig.bounceConstant;
+					if (shouldBounce && Mathf.Abs(velocity.x * Time.deltaTime) > DGConfig.minBounceDist) {
+						velocity.x *= -DGConfig.bounceConstant;
 					}
 					else velocity.x = 0;
 
@@ -67,8 +65,8 @@ public class WTMovingObject : WTPhysicsNode {
 
 			else if (WTPhysicsRay.Raycast(lHighRay, out lHighHit, xRayDistance, layerMask)) {
 				if (lHighHit.GetPhysicsNode().CompareTag("Solid")) {
-					if (shouldBounce && Mathf.Abs(velocity.x * Time.deltaTime) > WTConfig.minBounceDist) {
-						velocity.x *= -WTConfig.bounceConstant;
+					if (shouldBounce && Mathf.Abs(velocity.x * Time.deltaTime) > DGConfig.minBounceDist) {
+						velocity.x *= -DGConfig.bounceConstant;
 					}
 					else velocity.x = 0;
 
@@ -81,8 +79,8 @@ public class WTMovingObject : WTPhysicsNode {
 		else if (velocity.x > 0) {
 			if (WTPhysicsRay.Raycast(rLowRay, out rLowHit, xRayDistance, layerMask)) {
 				if (rLowHit.GetPhysicsNode().CompareTag("Solid")) {
-					if (shouldBounce && Mathf.Abs(velocity.x * Time.deltaTime) > WTConfig.minBounceDist) {
-						velocity.x *= -WTConfig.bounceConstant;
+					if (shouldBounce && Mathf.Abs(velocity.x * Time.deltaTime) > DGConfig.minBounceDist) {
+						velocity.x *= -DGConfig.bounceConstant;
 					}
 					else velocity.x = 0;
 
@@ -92,8 +90,8 @@ public class WTMovingObject : WTPhysicsNode {
 
 			else if (WTPhysicsRay.Raycast(rHighRay, out rHighHit, xRayDistance, layerMask)) {
 				if (rHighHit.GetPhysicsNode().CompareTag("Solid")) {
-					if (shouldBounce && Mathf.Abs(velocity.x * Time.deltaTime) > WTConfig.minBounceDist) {
-						velocity.x *= -WTConfig.bounceConstant;
+					if (shouldBounce && Mathf.Abs(velocity.x * Time.deltaTime) > DGConfig.minBounceDist) {
+						velocity.x *= -DGConfig.bounceConstant;
 					}
 					else velocity.x = 0;
 
@@ -103,7 +101,7 @@ public class WTMovingObject : WTPhysicsNode {
 		}
 
 		if (!isConstantlyMoving) {
-			float frictionMultiplier = this.isOnGround?WTConfig.frictionConstant:1;
+			float frictionMultiplier = this.isOnGround?DGConfig.frictionConstant:1;
 			float dragAmt = drag.x * frictionMultiplier * Time.deltaTime;
 			if (velocity.x - dragAmt > 0) velocity.x -= dragAmt;
 			else if (velocity.x + dragAmt < 0) velocity.x += dragAmt;
@@ -122,7 +120,7 @@ public class WTMovingObject : WTPhysicsNode {
 		WTPhysicsRaycastHit lCeilingHit;
 		WTPhysicsRaycastHit rCeilingHit;
 
-		velocity.y += WTConfig.gravity * Time.deltaTime;
+		velocity.y += DGConfig.gravity * Time.deltaTime;
 
 		float yRayDistance = Mathf.Abs(velocity.y * Time.deltaTime);
 
@@ -131,8 +129,8 @@ public class WTMovingObject : WTPhysicsNode {
 			if (WTPhysicsRay.Raycast(lFloorRay, out lFloorHit, yRayDistance, layerMask)) {
 				if (lFloorHit.GetPhysicsNode().CompareTag("Solid")) {
 					if (velocity.y <= 0) {
-						if (shouldBounce && Mathf.Abs(velocity.y * Time.deltaTime) > WTConfig.minBounceDist) {
-							velocity.y *= -WTConfig.bounceConstant;
+						if (shouldBounce && Mathf.Abs(velocity.y * Time.deltaTime) > DGConfig.minBounceDist) {
+							velocity.y *= -DGConfig.bounceConstant;
 						}
 						else {
 							velocity.y = 0;
@@ -146,8 +144,8 @@ public class WTMovingObject : WTPhysicsNode {
 			else if (WTPhysicsRay.Raycast(rFloorRay, out rFloorHit, yRayDistance, layerMask)) {
 				if (rFloorHit.GetPhysicsNode().CompareTag("Solid")) {
 					if (velocity.y <= 0) {
-						if (shouldBounce && Mathf.Abs(velocity.y * Time.deltaTime) > WTConfig.minBounceDist) {
-							velocity.y *= -WTConfig.bounceConstant;
+						if (shouldBounce && Mathf.Abs(velocity.y * Time.deltaTime) > DGConfig.minBounceDist) {
+							velocity.y *= -DGConfig.bounceConstant;
 						}
 						else {
 							velocity.y = 0;
@@ -165,7 +163,7 @@ public class WTMovingObject : WTPhysicsNode {
 			if (WTPhysicsRay.Raycast(lCeilingRay, out lCeilingHit, yRayDistance, layerMask)) {
 				if (lCeilingHit.GetPhysicsNode().CompareTag("Solid")) {
 					this.y = lCeilingHit.GetPoint().y - physicsComponent.GetGlobalHitBox().height / 2f - 0.01f;
-					if (shouldBounce) velocity.y *= -WTConfig.bounceConstant;
+					if (shouldBounce) velocity.y *= -DGConfig.bounceConstant;
 					else velocity.y = 0;
 				}
 			}
@@ -173,14 +171,14 @@ public class WTMovingObject : WTPhysicsNode {
 			else if (WTPhysicsRay.Raycast(rCeilingRay, out rCeilingHit, yRayDistance, layerMask)) {
 				if (rCeilingHit.GetPhysicsNode().CompareTag("Solid")) {
 					this.y = rCeilingHit.GetPoint().y - physicsComponent.GetGlobalHitBox().height / 2f - 0.01f;
-					if (shouldBounce) velocity.y *= -WTConfig.bounceConstant;
+					if (shouldBounce) velocity.y *= -DGConfig.bounceConstant;
 					else velocity.y = 0;
 				}
 			}
 		}
 
-		if (velocity.y > WTConfig.maxVelocity.y) velocity.y = WTConfig.maxVelocity.y;
-		else if (velocity.y < -WTConfig.maxVelocity.y) velocity.y = -WTConfig.maxVelocity.y;
+		if (velocity.y > DGConfig.maxVelocity.y) velocity.y = DGConfig.maxVelocity.y;
+		else if (velocity.y < -DGConfig.maxVelocity.y) velocity.y = -DGConfig.maxVelocity.y;
 
 		this.y += velocity.y * Time.deltaTime;
 	}

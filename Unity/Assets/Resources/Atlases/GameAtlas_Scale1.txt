@@ -2,7 +2,7 @@
 
 "WhiteBox.png":
 {
-	"frame": {"x":2,"y":338,"w":32,"h":32},
+	"frame": {"x":444,"y":64,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
@@ -10,27 +10,35 @@
 },
 "death_bg.png":
 {
-	"frame": {"x":2,"y":2,"w":480,"h":270},
+	"frame": {"x":2,"y":2,"w":342,"h":512},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
-	"sourceSize": {"w":480,"h":270}
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":0,"w":342,"h":512},
+	"sourceSize": {"w":512,"h":512}
 },
 "heart.png":
 {
-	"frame": {"x":2,"y":274,"w":96,"h":62},
+	"frame": {"x":346,"y":2,"w":96,"h":62},
 	"rotated": false,
 	"trimmed": true,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":62},
 	"sourceSize": {"w":95,"h":61}
+},
+"player_cell.png":
+{
+	"frame": {"x":444,"y":2,"w":60,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":60,"h":60},
+	"sourceSize": {"w":64,"h":64}
 }},
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker ",
 	"version": "1.0",
 	"image": "GameAtlas_Scale1.png",
 	"format": "RGBA8888",
-	"size": {"w":512,"h":512},
+	"size": {"w":512,"h":1024},
 	"scale": "0.25",
-	"smartupdate": "$TexturePacker:SmartUpdate:a1edea20a961a805f9c342363e0a146f$"
+	"smartupdate": "$TexturePacker:SmartUpdate:148d3fcfcab49af9f82a2d9e3f58e4bb$"
 }
 }

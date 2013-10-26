@@ -2,19 +2,35 @@
 
 "WhiteBox.png":
 {
-	"frame": {"x":2,"y":2,"w":128,"h":128},
+	"frame": {"x":2,"y":1330,"w":128,"h":128},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
 	"sourceSize": {"w":128,"h":128}
+},
+"death_bg.png":
+{
+	"frame": {"x":2,"y":2,"w":1920,"h":1080},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":1920,"h":1080},
+	"sourceSize": {"w":1919,"h":1080}
+},
+"heart.png":
+{
+	"frame": {"x":2,"y":1084,"w":380,"h":244},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":380,"h":244},
+	"sourceSize": {"w":379,"h":244}
 }},
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker ",
 	"version": "1.0",
 	"image": "GameAtlas_Scale4.png",
 	"format": "RGBA8888",
-	"size": {"w":256,"h":256},
+	"size": {"w":2048,"h":2048},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:e802119aa98ee5e3d6689aeebbf7def0:1/1$"
+	"smartupdate": "$TexturePacker:SmartUpdate:399ec83d07f75f9d39c8895df2fa8f81$"
 }
 }

@@ -55,6 +55,13 @@ public class DGMain : MonoBehaviour
 		GamepadManager.instance.SignalGamepadsChanged += HandleGamepadsChanged;
 		FPWorld.Create(64.0f);
 
+		DGConfig.colors = new Color[] {
+			RXColor.GetColorFromHex(0x4873ff), // blue
+			RXColor.GetColorFromHex(0x65f327), // green
+			RXColor.GetColorFromHex(0xfdff50), // yellow
+			RXColor.GetColorFromHex(0xee45e0)  // magenta
+		};
+
 		textParams = new FTextParams();
 		textParams.lineHeightOffset = -8.0f;
 		Futile.atlasManager.LoadFont("Franchise","FranchiseFont"+Futile.resourceSuffix, "Atlases/FranchiseFont"+Futile.resourceSuffix, -2.0f,-5.0f,textParams);

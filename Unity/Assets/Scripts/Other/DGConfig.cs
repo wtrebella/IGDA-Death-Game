@@ -2,16 +2,11 @@
 using System.Collections;
 
 public static class DGConfig {
-	public static Vector2 maxVelocity = new Vector2(10f, 10f);
+	public static Vector2 maxVelocity = new Vector2(7f, 7f);
 	
-	public static Color [] colors = new Color[] {
-		Color.blue,
-		Color.red,
-		Color.green,
-		Color.yellow
-	};
+	public static Color [] colors;
 
-	public const float baseVelocityMagnitude = 0.25f;
+	public const float baseVelocityMagnitude = 0.13f;
 	public const float drag = 2f;
 	public const float gravity = -10f;
 	public const float frictionConstant = 0f;

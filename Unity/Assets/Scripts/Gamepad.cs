@@ -11,11 +11,6 @@ public class Gamepad
     public int index;
     
     public Vector2 direction;
-	public DirectionType directionType = DirectionType.NONE;
-	public DirectionType previousDirectionType = DirectionType.NONE;
-    
-	public DirectionType directionTypeDown = DirectionType.NONE;
-	public DirectionType directionTypeUp = DirectionType.NONE;
 
 	public string axisJoyName; 
 	public string buttonJoyName; 
@@ -102,23 +97,6 @@ public class Gamepad
         
 		if(shouldInvertX) direction.x *= -1.0f;
 		if(shouldInvertY) direction.y *= -1.0f;
-
-		previousDirectionType = directionType;
-
-		if (direction.x == 0 && direction.y == 0) directionType = DirectionType.NONE;
-		else if (direction.x > -0.5f && direction.x < 0.5f && direction.y >= 0.5f) directionType = DirectionType.Up;
-		else if (direction.x > -0.5f && direction.x < 0.5f && direction.y < 0.5f) directionType = DirectionType.Down;
-		else if (direction.y > -0.5f && direction.y < 0.5f && direction.x > 0.5f) directionType = DirectionType.Right;
-		else if (direction.y > -0.5f && direction.y < 0.5f && direction.x <= 0.5f) directionType = DirectionType.Left;
-
-		if (previousDirectionType != directionType) {
-			directionTypeUp = previousDirectionType;
-			directionTypeDown = directionType;
-		}
-		else {
-			directionTypeUp = DirectionType.NONE;
-			directionTypeDown = DirectionType.NONE;
-		}
 
 		if(SHOULD_LOG_ALL_BUTTON_PRESSES)
 		{

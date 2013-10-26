@@ -1,0 +1,45 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainPage.cs">
+    <Files>
+      <File FileName="Assets/Scripts/WTPivvotInput.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Gamepad.cs" Line="1" Column="1" />
+      <File FileName="Assets/Futile/Rix/Editor/RXWatcherLinkEditor.cs" Line="11" Column="25" />
+      <File FileName="Assets/Scripts/Main.cs" Line="29" Column="25" />
+      <File FileName="Assets/Scripts/MainPage.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/AbstractPage.cs" Line="3" Column="26" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="MainPage.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+          <Node name="Assembly-CSharp-Editor" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Futile" expanded="True">
+                <Node name="Rix" expanded="True">
+                  <Node name="Editor" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

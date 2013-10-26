@@ -12,7 +12,7 @@ public enum PageType
 
 public class Main : MonoBehaviour 
 {
-	static Main instance = null;
+	//static Main instance = null;
 
 	private PageType _currentPageType = PageType.None;
 	private AbstractPage _currentPage = null;
@@ -20,7 +20,7 @@ public class Main : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		instance = this;
+		//instance = this;
 
 		Go.defaultEaseType = EaseType.Linear;
 		Go.duplicatePropertyRule = DuplicatePropertyRuleType.RemoveRunningProperty;

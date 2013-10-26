@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+/*
 public class WTPivvotInput {
 	public static bool GetRightDown() {
 #if !UNITY_EDITOR
@@ -257,3 +257,4 @@ public class WTPivvotInput {
 		return gamepad.buttonJoyName + " button " + numString;
 	}
 }
+*/

@@ -6,7 +6,7 @@ public static class DGConfig {
 	
 	public static Color [] colors;
 
-	public const float totalInfectionAmountGoal = 30;
+	public const float totalInfectionAmountGoal = 10;
 	public const float baseVelocityMagnitude = 0.13f;
 	public const float drag = 2f;
 	public const float gravity = -10f;

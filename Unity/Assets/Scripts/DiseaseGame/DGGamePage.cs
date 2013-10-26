@@ -20,9 +20,9 @@ public class DGGamePage : AbstractPage {
 		deathBG.x -= 15;
 		sceneContainer.AddChild(deathBG);
 
-		DGPlayer.players.Add(new DGPlayer());
-		DGPlayer.players.Add(new DGPlayer());
-		DGPlayer.players.Add(new DGPlayer());
+//		DGPlayer.players.Add(new DGPlayer());
+//		DGPlayer.players.Add(new DGPlayer());
+//		DGPlayer.players.Add(new DGPlayer());
 
 		CreateOrgans();
 		CreateBorderColliders();

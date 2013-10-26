@@ -24,6 +24,7 @@ public class DGGamePage : AbstractPage {
 			DGCell cell = new DGCell("player " + (i + 1), DGPlayer.players[i]);
 			cell.x = Futile.screen.halfWidth;
 			cell.y = 100;
+			cell.sprite.color = DGConfig.colors[i];
 			AddChild(cell);
 			cells.Add(cell);
 		}

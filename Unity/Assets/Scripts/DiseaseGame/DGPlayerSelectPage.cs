@@ -9,13 +9,6 @@ public class DGPlayerSelectPage : AbstractPage {
 	float distPerLabel;
 	int playerCount = 0;
 
-	Color [] colors = new Color[] {
-		Color.blue,
-		Color.red,
-		Color.green,
-		Color.yellow
-	};
-
 	string[] names = new string[] {
 		"Poopy Disease",
 		"Skin Eater",
@@ -28,7 +21,7 @@ public class DGPlayerSelectPage : AbstractPage {
 			playerLabels[i] = new FLabel("Franchise", "");
 			playerLabels[i].anchorX = 0;
 			playerLabels[i].scale = 0.75f;
-			playerLabels[i].color = colors[i];
+			playerLabels[i].color = DGConfig.colors[i];
 			playerLabels[i].x = leftMargin;
 			playerLabels[i].isVisible = false;
 			AddChild(playerLabels[i]);

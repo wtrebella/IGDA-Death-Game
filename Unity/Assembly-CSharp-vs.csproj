@@ -100,11 +100,9 @@
      <Compile Include="Assets\Scripts\Other\Enums.cs" />
      <Compile Include="Assets\Scripts\Other\Gamepad.cs" />
      <Compile Include="Assets\Scripts\Other\GamepadManager.cs" />
-     <Compile Include="Assets\Scripts\Physics\WTMovingObject.cs" />
      <Compile Include="Assets\Scripts\Physics\WTPhysicsComponent.cs" />
      <Compile Include="Assets\Scripts\Physics\WTPhysicsNode.cs" />
      <Compile Include="Assets\Scripts\Physics\WTPhysicsRay.cs" />
-     <Compile Include="Assets\Scripts\Physics\WTWall.cs" />
      <None Include="Assets\Resources\Atlases\FranchiseFont_Scale1.txt" />
      <None Include="Assets\Resources\Atlases\UIFonts_Scale4.txt" />
      <None Include="Assets\Resources\Atlases\CubanoInnerShadow_Scale2.txt" />

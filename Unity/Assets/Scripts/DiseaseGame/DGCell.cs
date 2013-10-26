@@ -1,23 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
+public enum CellAnimationType {
+	Idle,
+	Swimming
+}
 
 public class DGCell : WTPhysicsNode {
-	FSprite sprite;
+	public FSprite sprite;
+	public CellAnimationType animationType = CellAnimationType.Swimming;
+
+	List<FAtlasElement> animationElements = new List<FAtlasElement>();
+
 	DGPlayer player;
+	float animationNextTime = 0;
+	float animationStep = 0.1f;
+	int animationIndex = 0;
 
 	public DGCell(string name, DGPlayer player) : base(name) {
 		this.player = player;
 
-		FSprite sprite = new FSprite("player_cell");
-		sprite.color = new Color(0.2f, 0.4f, 1.0f);
-		sprite.scale = 0.9f;
+		sprite = new FSprite("player_move/player_move1");
 		AddChild(sprite);
 
-		physicsComponent.AddRigidBody(0f, 0f, 10f);
-		physicsComponent.rigidbody.drag = DGConfig.drag;
-		physicsComponent.AddSphereCollider(sprite.width * sprite.scale);
-		physicsComponent.SetupPhysicMaterial(0.0f, 0.0f, 0.0f, PhysicMaterialCombine.Minimum);
+		for (int i = 1; i <= 5; i++) {
+			animationElements.Add(Futile.atlasManager.GetElementWithName("player_move/player_move" + i));
+		}
+		for (int i = 4; i > 1; i--) {
+			animationElements.Add(Futile.atlasManager.GetElementWithName("player_move/player_move" + i));
+		}
 
+		physicsComponent.AddRigidBody(0f, 0f, 100f);
+		physicsComponent.rigidbody.drag = DGConfig.drag;
+		physicsComponent.AddSphereCollider(25);
+		physicsComponent.SetupPhysicMaterial(1f, 0.1f, 0.1f);
+
+		ListenForUpdate(HandleUpdate);
 		ListenForFixedUpdate(HandleFixedUpdate);
 	}
 
@@ -36,5 +55,15 @@ public class DGCell : WTPhysicsNode {
 		if (vel.y < 0) vel.y = Mathf.Max(vel.y, -DGConfig.maxVelocity.y);
 
 		physicsComponent.rigidbody.velocity = vel;
+	}
+
+	override public void HandleUpdate() {
+		if (animationType == CellAnimationType.Swimming) {
+			if (Time.time > animationNextTime) {
+				animationIndex++;
+				animationNextTime = Time.time + animationStep;
+				sprite.element = animationElements[animationIndex%animationElements.Count];
+			}
+		}
 	}
 }

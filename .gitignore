@@ -91,6 +91,9 @@ AppPackages/
 Iconr/*
 Iconr
 
+Library/
+Temp/
+
 # Others
 [Bb]in
 [Oo]bj

@@ -88,6 +88,8 @@ csx
 # Windows Store app package directory
 AppPackages/
 
+Iconr/*
+
 # Others
 [Bb]in
 [Oo]bj
